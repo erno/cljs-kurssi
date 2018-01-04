@@ -35,7 +35,7 @@
                  [cljsjs/react "15.6.1-1"]
                  [cljsjs/react-dom "15.6.1-1"]
                  [cljs-react-material-ui "0.2.48"]
-                 [figwheel "0.5.10"]
+                 [figwheel "0.5.14"]
                  [funcool/bide "1.5.1"] ;; URL router
 
                  ;; Something pulls an old guava which prevents closure compiler
@@ -44,7 +44,8 @@
                  ]
 
   :plugins [[lein-cljsbuild "1.1.5"]
-            [lein-figwheel "0.5.10"]]
+            [lein-figwheel "0.5.10"]
+            [lein-doo "0.1.7"]]
 
   ;; Sources for backend: clj and cljc (shared with frontend)
   :source-paths ["src/clj" "src/cljc"]
@@ -57,6 +58,15 @@
                 :compiler {:optimizations :none
                            :source-map true
                            :output-to "resources/public/js/widgetshop.js"
-                           :output-dir "resources/public/js/out"}}]}
+                           :output-dir "resources/public/js/out"}}
+               {:id "test"
+                :source-paths ["src/cljs" "src/cljc" "test/cljs"]
+                :figwheel {:on-jsload "widgetshop.main/reload-hook"}
+                :compiler {:optimizations :none
+                           :source-map true
+                           :output-to "resources/public/js/widgetshop-test.js"
+                           :main widgetshop.test-runner
+                           :output-dir "resources/public/js/out"}}]
+              }
 
   :main widgetshop.main)
