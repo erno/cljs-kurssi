@@ -44,7 +44,7 @@
                  ]
 
   :plugins [[lein-cljsbuild "1.1.5"]
-            [lein-figwheel "0.5.10"]
+            [lein-figwheel "0.5.14"]
             [lein-doo "0.1.7"]]
 
   ;; Sources for backend: clj and cljc (shared with frontend)
@@ -66,7 +66,7 @@
                            :source-map true
                            :output-to "resources/public/js/widgetshop-test.js"
                            :main widgetshop.test-runner
-                           :output-dir "resources/public/js/out"}}]
+                           :output-dir "resources/public/js/out-test"}}]
               }
 
   :main widgetshop.main)
