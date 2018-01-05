@@ -20,8 +20,13 @@
   (.log js/console "valitaaas tuotelistaus: " (pr-str params))
   (products/select-category-by-name! (js/decodeURIComponent (:category params))))
 
+(defn log-obj [obj]
+  (.log js/console (pr-str obj)))
+
 (defmethod navigate :product-details [{params :params}]
   (.log js/console "cat: " (:category params) ", product: " (:product params))
+  (log-obj params)
+  (.log js/console (pr-str (deref state/app)))
   (products/select-category-by-name! (js/decodeURIComponent (:category params)))
   (products/set-selected-product-id! (js/parseInt (:product params)))
   (state/update-state! assoc :page :product-details))

@@ -22,6 +22,3 @@
           :categories [{:id 2 :name :foo}
                        {:id 1 :name :bar}]
           :products-by-category {{:id 1 :name :bar} :loading}})))
-
-
-

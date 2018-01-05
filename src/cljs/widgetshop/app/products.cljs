@@ -26,8 +26,9 @@
     category-id))
 
 (defn select-category-by-name! [category-name]
-  (let [category-name (str/lower-case category-name)
-        id (some #(when (= (str/lower-case (:name %))
+  (.log js/console "category-name" (pr-str category-name))
+  (let [category-name (str/lower-case (or category-name "(no category given)"))
+        id (some #(when (= (str/lower-case (or (:name %) "(no :name)"))
                            category-name)
                     (:id %))
                  (:categories @state/app))]

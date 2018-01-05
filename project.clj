@@ -14,7 +14,7 @@
                  [org.clojure/java.jdbc "0.7.1"]
 
                  ;; embedded postgres
-                 [com.opentable.components/otj-pg-embedded "0.7.1"]
+                 [com.opentable.components/otj-pg-embedded "0.11.0"]
 
                  ;; http-kit HTTP server (and client)
                  [http-kit "2.2.0"]
